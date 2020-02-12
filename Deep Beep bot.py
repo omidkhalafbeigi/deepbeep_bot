@@ -66,11 +66,11 @@ def lock_group(last_message):
         return is_lock
 
 
-# file = open(f"{os.environ['HOME']}/Desktop/Bad Words", "r")
-database_badwords = ['fuck', 'shit', 'damn', 'bitch']
-
-
-# file.close()
+file = open(f"{os.getcwd()}/Bad Words", "r")
+database_badwords = file.read()
+print(f'List of bad words loaded:')
+print(database_badwords)
+file.close()
 # api.telegram.org/bot1024213820:AAHgNbsuySh1kMM9OzfncEpIEalx6jIKozI/sendMessage?chat_id=<chat_id>&text=<text>
 
 def check_message(last_index, is_lock):  # last_message = result[len(result_json) - 1]
@@ -84,15 +84,18 @@ def check_message(last_index, is_lock):  # last_message = result[len(result_json
         keyboard = [[telegram.InlineKeyboardButton(text='About', url='',
                                                    callback_data='Hi.\nI am protector of your group!'),
                      telegram.InlineKeyboardButton(text='Features', url='',
-                                                   callback_data='-Lock and unlock group, supergroup\n-Filter bad words\n-...'),
+                                                   callback_data='-Lock and unlock group, supergroup\n-Filtering bad '
+                                                                 'words\n-...'),
                      telegram.InlineKeyboardButton(text='Buy', url='',
                                                    callback_data='Contact to @Omid_KHB')]]
         markup = telegram.InlineKeyboardMarkup(keyboard)
         chat_id = last_index['message']['chat']['id']
         bot.send_message(chat_id, text='Hey my friend!\nClick one of these buttons:', reply_markup=markup)
+        print('Message from private chat...')
 
     elif ('callback_query' in last_index) and (last_index['callback_query']['message']['chat']['type'] == 'private'):
         bot.send_message(last_index['callback_query']['message']['chat']['id'], last_index['callback_query']['data'])
+        print('I answered to callback query...')
 
     elif (last_index['message']['chat']['type'] == 'supergroup') or (last_index['message']['chat']['type'] == 'group'):
         if 'text' in last_index['message']:
