@@ -8,7 +8,7 @@ cloudpickle==1.2.2
 cryptography==2.1.4
 cycler==0.10.0
 decorator==4.4.1
-Django==1.11.27
+Django==1.11.29
 duplicity==0.7.17
 enum34==1.1.6
 fasteners==0.12.0
