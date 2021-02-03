@@ -37,7 +37,7 @@ def get_private_chat():  # handmade (this function, get chats information in pri
 
 # ------------------------------------------------------
 
-bot = telegram.Bot('1024213820:AAHgNbsuySh1kMM9OzfncEpIEalx6jIKozI')
+bot = telegram.Bot('Code')
 
 
 def check_is_admin(last_index):  # In function, id akharin shakhsi ke payam ferestade ro ba id admin haye group
