@@ -13,7 +13,7 @@ def get_private_chat():  # handmade (this function, get chats information in pri
 
         json_get_update = requests.get(
             'https://api.telegram.org/bot1024213820:AAHgNbsuySh1kMM9OzfncEpIEalx6jIKozI/getupdates').json()
-        bot = telegram.Bot('981511760:AAEK3hz7ACpC2Q5l7_k_7Pa8dRlKkMN-Ejo')
+        bot = telegram.Bot('Bot Code')
         json_get_update_result = json_get_update['result']  # type: list
         update_id = json_get_update_result[len(json_get_update_result) - 1]['update_id']
         message = json_get_update_result[len(json_get_update_result) - 1]['message']
@@ -37,7 +37,7 @@ def get_private_chat():  # handmade (this function, get chats information in pri
 
 # ------------------------------------------------------
 
-bot = telegram.Bot('Code')
+bot = telegram.Bot('Bot Code')
 
 
 def check_is_admin(last_index):  # In function, id akharin shakhsi ke payam ferestade ro ba id admin haye group
